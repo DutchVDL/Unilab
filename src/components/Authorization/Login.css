@@ -1,0 +1,75 @@
+.authorization {
+  margin-top: 50px;
+  background-color: white;
+  width: 594px;
+  height: 594px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+
+  align-items: center;
+}
+
+.authorization h1 {
+  color: black;
+  font-size: 44px;
+  font-weight: 800;
+  font-family: "Montserrat";
+  margin-bottom: -5px;
+}
+
+.authorization h2 {
+  color: black;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: "Montserrat";
+  margin-bottom: 60px;
+}
+
+.authorization h3 {
+  color: black;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: "Montserrat";
+  margin-bottom: 60px;
+}
+
+.authorization button {
+  width: 255px;
+  height: 44.14px;
+  border-radius: 50px;
+  margin-top: 30px;
+  border: none;
+  font-size: 15px;
+  color: white;
+  font-weight: 400;
+}
+
+#text {
+  background-color: #e6ebff;
+  width: 362px;
+  height: 61px;
+  border: none;
+  font-size: x-large;
+  padding: 0 15px;
+}
+
+#file {
+  display: none;
+}
+
+.authorization img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.image-upload-container {
+  background-color: #e6ebff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
