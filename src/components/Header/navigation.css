@@ -3,6 +3,8 @@ header {
   width: 100vw;
   border-bottom: 1px solid white;
   height: 80px;
+  box-sizing: border-box;
+  margin-top: -32px;
 }
 
 #header {

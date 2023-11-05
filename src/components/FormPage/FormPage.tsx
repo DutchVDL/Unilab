@@ -22,6 +22,9 @@ const FormPage = () => {
   const [activeChecked, setActiveIsChecked] = useState(true);
   const [inactiveIsChecked, setInactiveIsChecked] = useState(true);
 
+  const [showStatus, setShowStatus] = useState(true);
+  const [showGender, setShowGender] = useState(true);
+
   const handleMaleCheck = (e) => {
     setMaleIsChecked((prev) => !prev);
   };
@@ -39,7 +42,7 @@ const FormPage = () => {
   const nums = [...Array(pageNum + 1).keys()].slice(1);
 
   const nextPage = () => {
-    if (currPage !== lastIndex && currPage < 8) {
+    if (currPage !== lastIndex && currPage < 6) {
       setCurrPage(currPage + 1);
     }
   };
@@ -59,98 +62,140 @@ const FormPage = () => {
       {showFilter && (
         <div className="filterbar">
           <div
-            style={{ display: "flex", alignItems: "center", marginTop: "20px" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginTop: "20px",
+              cursor: "pointer",
+            }}
+            onClick={() => setShowStatus((prev) => !prev)}
           >
-            <IoIosArrowForward
-              className="arrows"
-              style={{ color: "#274D78", marginLeft: "14px" }}
-            />
+            {showStatus ? (
+              <IoIosArrowForward
+                className="arrows"
+                style={{ color: "#274D78", marginLeft: "14px" }}
+              />
+            ) : (
+              <IoIosArrowDown
+                className="arrows"
+                style={{ color: "#274D78", marginLeft: "14px" }}
+              />
+            )}
             <h4>სტუდენტის სტატუსი</h4>
           </div>
 
+          {showStatus && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "7px",
+                marginLeft: "44px",
+              }}
+            >
+              <label
+                htmlFor=""
+                style={{
+                  fontFamily: "Montserrat",
+                  fontWeight: "800",
+                  accentColor: "#3669A2",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  value="active"
+                  checked={activeChecked}
+                  onChange={() => setActiveIsChecked((prev) => !prev)}
+                />
+                ACTIVE
+              </label>
+
+              <label
+                htmlFor=""
+                style={{
+                  fontFamily: "Montserrat",
+                  fontWeight: "800",
+                  accentColor: "#3669A2",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  value="inactive"
+                  checked={inactiveIsChecked}
+                  onChange={() => setInactiveIsChecked((prev) => !prev)}
+                />
+                INACTIVE
+              </label>
+            </div>
+          )}
+
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              gap: "7px",
-              marginLeft: "44px",
+              alignItems: "center",
+              marginTop: "20px",
+              cursor: "pointer",
             }}
+            onClick={() => setShowGender((prev) => !prev)}
           >
-            <label
-              htmlFor=""
-              style={{ fontFamily: "Montserrat", accentColor: "#3669A2" }}
-            >
-              <input
-                type="checkbox"
-                value="active"
-                checked={activeChecked}
-                onChange={() => setActiveIsChecked((prev) => !prev)}
+            {showGender ? (
+              <IoIosArrowForward
+                className="arrows"
+                style={{ color: "#274D78", marginLeft: "14px" }}
               />
-              ACTIVE
-            </label>
-
-            <label
-              htmlFor=""
-              style={{ fontFamily: "Montserrat", accentColor: "#3669A2" }}
-            >
-              <input
-                type="checkbox"
-                value="inactive"
-                checked={inactiveIsChecked}
-                onChange={() => setInactiveIsChecked((prev) => !prev)}
+            ) : (
+              <IoIosArrowDown
+                className="arrows"
+                style={{ color: "#274D78", marginLeft: "14px" }}
               />
-              INACTIVE
-            </label>
-          </div>
-
-          <div
-            style={{ display: "flex", alignItems: "center", marginTop: "20px" }}
-          >
-            <IoIosArrowForward
-              className="arrows"
-              style={{ color: "#274D78", marginLeft: "14px" }}
-            />
+            )}
             <h4>სქესი</h4>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "7px",
-              marginLeft: "44px",
-            }}
-          >
-            <label
-              htmlFor=""
-              style={{ fontFamily: "Montserrat", accentColor: "#3669A2" }}
-            >
-              <input
-                type="checkbox"
-                value="female"
-                checked={femaleIsChecked}
-                onChange={handleFemaleCheck}
-              />
-              ქალი
-            </label>
-            <label
-              htmlFor=""
+          {showGender && (
+            <div
               style={{
-                fontFamily: "Montserrat",
-
-                accentColor: "#3669A2",
+                display: "flex",
+                flexDirection: "column",
+                gap: "7px",
+                marginLeft: "44px",
               }}
             >
-              <input
-                type="checkbox"
-                value="male"
-                checked={maleIsChecked}
-                onChange={handleMaleCheck}
-                style={{ color: "#3669A2" }}
-              />
-              კაცი
-            </label>
-          </div>
+              <label
+                htmlFor=""
+                style={{
+                  fontFamily: "Montserrat",
+                  accentColor: "#3669A2",
+                  fontWeight: "800",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  value="female"
+                  checked={femaleIsChecked}
+                  onChange={handleFemaleCheck}
+                />
+                FEMALE
+              </label>
+              <label
+                htmlFor=""
+                style={{
+                  fontFamily: "Montserrat",
+                  fontWeight: "800",
+                  accentColor: "#3669A2",
+                }}
+              >
+                <input
+                  type="checkbox"
+                  value="male"
+                  checked={maleIsChecked}
+                  onChange={handleMaleCheck}
+                  style={{ color: "#3669A2" }}
+                />
+                MALE
+              </label>
+            </div>
+          )}
         </div>
       )}
 
@@ -221,7 +266,7 @@ const FormPage = () => {
                   return i;
                 }
               })
-              .filter((i) => {
+              .filter((i, n, array) => {
                 if (!activeChecked && !inactiveIsChecked) {
                   return null;
                 } else if (activeChecked && !inactiveIsChecked) {

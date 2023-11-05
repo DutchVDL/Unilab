@@ -45,6 +45,12 @@
   font-weight: 400;
 }
 
+.authorization button:hover {
+  color: #4980c0;
+  border: solid 1px #4980c0;
+  font-weight: 800;
+}
+
 #text {
   background-color: #e6ebff;
   width: 362px;

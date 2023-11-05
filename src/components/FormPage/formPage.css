@@ -107,12 +107,12 @@ nav {
 }
 
 .filterbar {
-  width: 297px;
+  width: 247px;
   height: 297px;
   background-color: white;
   position: absolute;
-  left: 10px;
-  top: 206px;
+  left: 80px;
+  top: 175px;
   border-radius: 10px;
 }
 
