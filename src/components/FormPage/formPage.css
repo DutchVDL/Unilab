@@ -1,13 +1,21 @@
 .container {
   margin: 0 auto;
-  width: 800px;
+  width: 1400px;
   height: 500px;
+
+  position: relative;
+}
+
+.container nav {
+  width: 800px;
+  margin: 25px auto;
 }
 
 .table-container {
   overflow-x: scroll;
   border-radius: 10px;
   width: 800px;
+  margin: 0 auto;
 }
 
 .data-table {
@@ -109,9 +117,9 @@ nav {
   height: 297px;
   background-color: white;
   position: absolute;
-  left: 100px;
+  left: 40px;
 
-  top: 175px;
+  top: 67px;
   border-radius: 10px;
 }
 
@@ -130,10 +138,4 @@ nav {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-}
-
-@media only screen and (min-width: 1920px) {
-  .filterbar {
-    left: 300px;
-  }
 }
