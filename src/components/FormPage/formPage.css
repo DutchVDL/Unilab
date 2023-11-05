@@ -7,6 +7,7 @@
 .table-container {
   overflow-x: scroll;
   border-radius: 10px;
+  width: 800px;
 }
 
 .data-table {
@@ -14,9 +15,6 @@
   border-collapse: collapse;
   overflow-x: scroll;
   table-layout: fixed;
-}
-
-.data-table th {
 }
 
 .data-table th,
@@ -112,6 +110,7 @@ nav {
   background-color: white;
   position: absolute;
   left: 100px;
+
   top: 175px;
   border-radius: 10px;
 }
@@ -131,4 +130,10 @@ nav {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+}
+
+@media only screen and (min-width: 1920px) {
+  .filterbar {
+    left: 300px;
+  }
 }
